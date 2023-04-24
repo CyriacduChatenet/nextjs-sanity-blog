@@ -2,6 +2,9 @@
 [![next](https://img.shields.io/badge/Next.js-20232A?style=for-the-badge&logo=nextdotjs&logoColor=FFFFFF)](https://nextjs.org/)
 [![Sanity](https://img.shields.io/badge/Sanity-F03F2E?style=for-the-badge&logo=sanity_studio&logoColor=white)](https://sanity.io/)
 
+- [Client](https://nextjs-sanity-blog-xi.vercel.app/)
+- [CMS](https://nextjs-blog-poc.sanity.studio/desk/article;de82803f-6635-4d3b-a35b-5b07b6e3614a)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
