@@ -22,7 +22,14 @@ interface IProps {
         _id: string;
         name: string;
       }
-    ]
+    ],
+    comments: [
+      {
+        _id: string;
+        author: string;
+        content: string;
+      }
+    ],
     content: string;
   };
 }
