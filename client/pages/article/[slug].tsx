@@ -47,7 +47,12 @@ const Article: NextPage<IProps> = ({ article }) => {
         <br />
         <h2>Comments</h2>
         <br />
-        <p>comments</p>
+       {article.comments.map((comment: { _id: string; author: string; content: string; }) => (
+          <div key={comment._id}>
+            <h3>{comment.author}</h3>
+            <p>{comment.content}</p>
+          </div>
+        ))}
         <br />
         <CommentForm article_id={article._id}/>
       </div>
@@ -68,6 +73,11 @@ const singleArticleQuery = `*[_type == "article" && slug.current == $slug] {
   "categories": categories[]->{
     _id,
     name
+  },
+  "comments": *[_type == "comment" && references(^._id)] {
+    _id,
+    author,
+    content,
   }
 }[0]
 `;
