@@ -34,6 +34,20 @@ export default {
       ]
     },
     {
+      "name": "comments",
+      "type": "array",
+      "of": [
+        {
+          "type": "reference",
+          "to": [
+            {
+              "type": "comment"
+            }
+          ]
+        }
+      ]
+    },
+    {
       title: 'Thumbnail',
       name: 'thumbnail',
       type: 'image',

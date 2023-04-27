@@ -42,6 +42,18 @@ const Article: NextPage<IProps> = ({ article }) => {
       <br />
       <Image src={sanityUrlFor(article.thumbnail.asset._ref).url()} alt={""} width={200} height={200} />
       <p>{article.content}</p>
+      <div>
+        <br />
+        <h2>Comments</h2>
+        <br />
+        <p>comments</p>
+        <br />
+        <form action="">
+          <input type="text" name="author" id="" placeholder="author" />
+          <textarea name="content" id="" cols={30} rows={10} placeholder="content"></textarea>
+          <input type="submit" value="Send" />
+        </form>
+      </div>
     </div>
   );
 };
