@@ -10,9 +10,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 interface IProps {
   articles: any[];
+  categories: any[];
 };
 
-const Home: NextPage<IProps> = ({ articles }) => {
+const Home: NextPage<IProps> = ({ articles, categories }) => {
   return (
     <>
       <Head>
@@ -69,6 +70,13 @@ const Home: NextPage<IProps> = ({ articles }) => {
             <p>{article.content}</p>
           </Link>)}
         </div>
+
+        <h2 className={styles.title}>Categories</h2>
+        <div className={styles.grid}>
+          {categories.map((category, index) => <Link href={`category/${category.slug.current}`} key={index}>
+            <h3>{category.name}</h3>
+          </Link>)}
+        </div>
       </main>
     </>
   )
@@ -76,17 +84,31 @@ const Home: NextPage<IProps> = ({ articles }) => {
 
 export default Home;
 
-const query = `*[_type == "article"] {
+const articleQuery = `*[_type == "article"] {
   _id,
   title,
   slug,
   content,
-}
-`;
+  "categories": categories[]->{
+    _id,
+    name
+  }
+}`;
+
+const categoryQuery = `*[_type == "category"] {
+  _id,
+  name,
+  slug,
+  "articles": articles[]->{
+    _id,
+    title,
+  }
+}`;
 
 export const getStaticProps = async () => {
-  const articles = await sanity.fetch(query);
+  const articles = await sanity.fetch(articleQuery);
+  const categories = await sanity.fetch(categoryQuery);
   return {
-    props: { articles }
+    props: { articles, categories }
   };
 };

@@ -16,6 +16,12 @@ interface IProps {
         _ref: string;
       };
     };
+    categories: [
+      {
+        _id: string;
+        name: string;
+      }
+    ]
     content: string;
   };
 }
@@ -26,6 +32,11 @@ const Article: NextPage<IProps> = ({ article }) => {
       <h1>{article.title}</h1>
       <br />
       <br />
+      <div>
+        {article.categories.map((category: { _id: string; name: string; }) => (
+          <span key={category._id}>{category.name} &nbsp;</span>
+        ))}
+      </div>
       <Link href={"/"}>go to home</Link>
       <br />
       <br />
@@ -45,6 +56,10 @@ const singleArticleQuery = `*[_type == "article" && slug.current == $slug] {
   slug,
   thumbnail,
   content,
+  "categories": categories[]->{
+    _id,
+    name
+  }
 }[0]
 `;
 
