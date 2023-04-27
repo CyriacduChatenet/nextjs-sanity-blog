@@ -37,7 +37,7 @@ interface IProps {
 const Article: NextPage<IProps> = ({ article }) => {
   return (
     <div>
-      <h1>{article.title}</h1>
+      <h1 className="text-3xl font-bold">{article.title}</h1>
       <br />
       <br />
       <div>
@@ -45,14 +45,14 @@ const Article: NextPage<IProps> = ({ article }) => {
           <span key={category._id}>{category.name} &nbsp;</span>
         ))}
       </div>
-      <Link href={"/"}>go to home</Link>
+      <Link href={"/"} className="text-blue-700 underline">go to home</Link>
       <br />
       <br />
       <Image src={sanityUrlFor(article.thumbnail.asset._ref).url()} alt={""} width={200} height={200} />
       <p>{article.content}</p>
       <div>
         <br />
-        <h2>Comments</h2>
+        <h2 className="text-2xl font-medium">Comments</h2>
         <br />
        {article.comments.map((comment: { _id: string; author: string; content: string; }) => (
           <div key={comment._id}>
