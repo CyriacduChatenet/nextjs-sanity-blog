@@ -64,8 +64,8 @@ const Home: NextPage<IProps> = ({ articles }) => {
 
         <h2 className={styles.title}>Articles</h2>
         <div className={styles.grid}>
-          {articles.map((article, index) => <Link href={`article/${article._id}`} key={index}>
-            <h3>{article.name}</h3>
+          {articles.map((article, index) => <Link href={`article/${article.slug.current}`} key={index}>
+            <h3>{article.title}</h3>
             <p>{article.content}</p>
           </Link>)}
         </div>
@@ -78,7 +78,7 @@ export default Home;
 
 const query = `*[_type == "article"] {
   _id,
-  name,
+  title,
   slug,
   content,
 }
