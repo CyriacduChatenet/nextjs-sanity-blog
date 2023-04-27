@@ -1,3 +1,4 @@
+import CommentForm from "@/components/commentForm";
 import sanity from "@/lib/sanity";
 import { sanityUrlFor } from "@/lib/sanity-image";
 import { NextPage } from "next";
@@ -48,11 +49,7 @@ const Article: NextPage<IProps> = ({ article }) => {
         <br />
         <p>comments</p>
         <br />
-        <form action="">
-          <input type="text" name="author" id="" placeholder="author" />
-          <textarea name="content" id="" cols={30} rows={10} placeholder="content"></textarea>
-          <input type="submit" value="Send" />
-        </form>
+        <CommentForm article_id={article._id}/>
       </div>
     </div>
   );
